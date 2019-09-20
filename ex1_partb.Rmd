@@ -1,0 +1,42 @@
+---
+title: <center> Exercise 1 \center
+author: <center> Felix Hofmann \center
+date: <center> 20 9 2019 \center
+output: html_document
+--- 
+***
+### Part b)
+#### 2.
+
+#### Histogram of the log-normal sample
+<br/>
+```{r}
+set.seed(1)
+sam <- rlnorm(100, meanlog = 1, sdlog = 0.25)
+
+hist(sam, probability = T, breaks = seq(floor(min(sam)), ceiling(max(sam)), by = 0.2),
+     col = 7, main = "Histogram of the sample with superimposed density", xlab = "x",
+     font.main = 1, las = 1)
+lines(seq(0, 8, by = 0.01), dlnorm(seq(0, 8, by = 0.01), meanlog = 1, sdlog = 0.25), 
+      col = 1, lty = 1, lwd = 2)
+legend("topright", legend = "Density of the log-normal distribution", lty = 1, col = 1,
+       cex = 0.75, bty = "n")
+```
+<br/>
+
+#### Histogram of the log-normal sample on the log-scale
+
+<br/>
+```{r}
+hist(log(sam), probability = T, breaks = seq(floor(min(log(sam))), ceiling(max(log(sam))), by = 0.1), col = 7, main = "Histogram of the log-scaled sample with superimposed density", xlab = "x", font.main = 1, las = 1)
+lines(seq(0, 8, by = 0.01), dnorm(seq(0, 8, by = 0.01), mean = 1, sd = 0.25), 
+      col = 1, lty = 1, lwd = 2)
+legend("topright", legend = "Density of the normal distribution", lty = 1, col = 1,
+       cex = 0.65, bty = "n")
+```
+<br/>
+
+#### Some summary statistics of the sample
+
+<br/>
+The mean of the sample is `r mean(sam)` and the variance is `r var(sam)`.
