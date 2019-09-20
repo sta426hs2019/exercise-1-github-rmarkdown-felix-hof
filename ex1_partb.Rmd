@@ -28,7 +28,9 @@ legend("topright", legend = "Density of the log-normal distribution", lty = 1, c
 
 <br/>
 ```{r}
-hist(log(sam), probability = T, breaks = seq(floor(min(log(sam))), ceiling(max(log(sam))), by = 0.1), col = 7, main = "Histogram of the log-scaled sample with superimposed density", xlab = "x", font.main = 1, las = 1)
+hist(log(sam), probability = T, breaks = seq(floor(min(log(sam))), ceiling(max(log(sam))), 
+     by = 0.1), col = 7, main = "Histogram of the log-scaled sample with superimposed density", 
+     xlab = "x", font.main = 1, las = 1)
 lines(seq(0, 8, by = 0.01), dnorm(seq(0, 8, by = 0.01), mean = 1, sd = 0.25), 
       col = 1, lty = 1, lwd = 2)
 legend("topright", legend = "Density of the normal distribution", lty = 1, col = 1,
